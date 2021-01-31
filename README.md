@@ -1,4 +1,4 @@
-# gif_finder_flutter
+# Gif finder app
 
 Flutter application for finding gifs using custom search url for GIPHY. 
 
