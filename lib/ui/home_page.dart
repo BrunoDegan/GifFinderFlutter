@@ -16,17 +16,17 @@ class _HomePageState extends State<HomePage> {
   int _limit = 19;
   int _offset = 0;
   //Please insert your api key here
-  final String API_KEY = "";
+  final String API_KEY = "VYZPJhGwk7icCR5odyLvzmQj4mFhyyUg";
 
   Future<Map> _getGifs() async {
     http.Response response;
 
     if (_search == null) {
-      response = await http.get(
-          "https://api.giphy.com/v1/gifs/trending?api_key=$API_KEY&limit=30&rating=G");
+      response = await http.get(Uri.parse(
+          "https://api.giphy.com/v1/gifs/trending?api_key=$API_KEY&limit=30&rating=G"));
     } else {
-      response = await http.get(
-          "https://api.giphy.com/v1/gifs/search?api_key=$API_KEY&q=$_search&limit=$_limit&offset=$_offset&rating=G&lang=en");
+      response = await http.get(Uri.parse(
+          "https://api.giphy.com/v1/gifs/search?api_key=$API_KEY&q=$_search&limit=$_limit&offset=$_offset&rating=G&lang=en"));
     }
 
     return json.decode(response.body);
@@ -71,7 +71,6 @@ class _HomePageState extends State<HomePage> {
                           height: 200.0,
                           alignment: Alignment.center,
                           child: CircularProgressIndicator(
-                            // ignore: missing_return, missing_return
                             valueColor:
                                 AlwaysStoppedAnimation<Color>(Colors.white),
                             strokeWidth: 5.0,
