@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String _search;
+  String? _search;
   int _limit = 19;
   int _offset = 0;
   //Please insert your api key here
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   int _getCounts(List data) {
-    if (_search == null || _search.isEmpty) {
+    if (_search == null || _search!.isEmpty) {
       return data.length;
     } else {
       return data.length + 1;
